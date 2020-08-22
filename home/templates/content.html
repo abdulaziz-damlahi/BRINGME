@@ -26,29 +26,24 @@
             <!-- section title -->
             {% for rs in products_newist %}
                 <!-- Product Single -->
-                <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="col-md-3 col-md-3 col-xs-6">
                     <div class="product product-single">
                         <div class="product-thumb">
                             
-                           <a href="/category/{{ rs.id }}/{{ rs.slug }}" class=""><i class="fa fa-search-plus"></i> Quick view</a>
+
                             <img src="{{ rs.image.url }}" class="img-fluid" alt="" style="height: 200px">
                         </div>
                         <div class="product-body">
-                            <h3 class="product-price">{{ rs.price}}</h3>
+
                             <div class="product-rating">
-                                <i class="fa fa-star{% if rs.avaregereview < 1%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 2%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 3%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 4%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 5%}-o empty{% endif%}"></i>
-                                {{ rs.avaregereview}}/{{ rs.countreview}}
 
                             </div>
                             <h2 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
+                             <h5 class="product-price">{{ rs.resturant}}</h5>
+                                 <h3 class="product-price">{{ rs.price}} ₺</h3>
+
                             <div class="product-btns">
-                                <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                                <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                    <a href="/order/addtoshopcart/{{ rs.id }}" class="primary-btn add-to-cart"></i>DELIVER NOW</a>
+                                    <a href="/order/addtoshopcart/{{ rs.id }}" class="bcart-btn add-to-cart"></i>Bring Me</a>
 
                             </div>
                         </div>
@@ -77,25 +72,19 @@
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="product product-single">
                         <div class="product-thumb">
-                            <a href="/category/{{ rs.id }}/{{ rs.slug }}"><i class="gallery-single fix"></i> Quick view</a>
+
                             <img src="{{ rs.image.url }}" class="img-fluid"  alt="" style="height: 200px">
                         </div>
                         <div class="product-body">
-                            <h3 class="product-price">{{ rs.price }}</h3>
+
                             <div class="product-rating">
-                                <i class="fa fa-star{% if rs.avaregereview < 1%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 2%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 3%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 4%}-o empty{% endif%}"></i>
-                                <i class="fa fa-star{% if rs.avaregereview < 5%}-o empty{% endif%}"></i>
-                                {{ rs.avaregereview}}/{{ rs.countreview}}
                             </div>
                             <h2 class="section"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
+                             <h5 class="product-price">{{ rs.resturant}}</h5>
+                                            <h3 class="product-price">{{ rs.price }} ₺</h3>
                             <div class="product-btns">
-                                <button class="DELIVER NOW"><i class="fa fa-heart"></i></button>
-                                <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
 
-                                    <a href="/order/addtoshopcart/{{ rs.id }}" class="primary-btn add-to-cart"></i> DELIVER NOW</a>
+                                    <a href="/order/addtoshopcart/{{ rs.id }}" class="bcart-btn add-to-cart"></i>Bring Me</a>
 
                             </div>
                         </div>
@@ -109,5 +98,6 @@
         <!-- /row -->
     </div>
     <!-- /container -->
+</div>
 </div>
 <!-- /section -->

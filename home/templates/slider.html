@@ -105,12 +105,12 @@
                     <!-- banner -->
                     <div class="mySlides">
 
-                        <img src="{{ rs.image.url }}" alt="" style="height: 500px">
+                        <img  src="{{ rs.image.url }}" alt="" style="height: 500px">
                         <div class="banner-caption m-b-20">
-                            <h1>{{ rs.title }}   </h1>
-                             <h3 class="white-color m-b-20">  {{ rs.resturant }}  </h3>
+                            <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="bcart-btn">{{ rs.title }}</a>
+                              <h5 class="product-price">{{ rs.resturant}}</h5>
                             <h3 class="white-color m-b-20">  {{ rs.price }}  </h3>
-                            <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="primary-btn">DELIVER</a>
+
 
 
                         </div>

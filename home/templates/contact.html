@@ -1,14 +1,13 @@
 {% extends 'homebase.html' %}
-{% block header %}{% include "header.html" %}{% endblock %}
-{% load mptt_tags %}
 {% load static %}
+{% load mptt_tags %}
+{% block header %}{% include "header.html" %}{% endblock %}
 
-{% block content %}
-    {% load mptt_tags %}
-
-    {% block title %} contact- {{ setting.title }} {% endblock %}
-
-
+  {% block title %} contact- {{ setting.title }} {% endblock %}
+    {% block keywords %}  {{ setting.keywords }} {% endblock %}
+    {% block description %}  {{ setting.description }} {% endblock %}
+{%block content %}
+<body>
 
 
     <!-- Start header -->
@@ -69,7 +68,6 @@
 
     <div class="container1">
         {% csrf_token %}
-        <h3>CONTACT FORM</h3>
 
         {% if messages %}
             {% for message in massages %}
@@ -93,7 +91,7 @@
 
     <!-- Start About -->
 
-    <div class="container1">
+    <div class="container1"  background-color="grey">
 
 
         <div class="container">
@@ -107,7 +105,7 @@
             </div>
         </div>
     </div>
-
+</body>
 {% endblock %}
 
 {% block footer %}{% include "footer.html" %}{% endblock %}

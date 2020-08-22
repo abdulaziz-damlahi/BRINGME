@@ -5,18 +5,19 @@
 {% block header %}{% include "header.html" %}{% endblock %}
 {% block content %}
 
-    {% block title %} {{ product.title }} {% endblock %}
+    {% block title %}product deatils - {{ product.title }} {% endblock %}
     {% block keywords %}  {{ product.keywords }} {% endblock %}
     {% block description %}  {{ product.description }} {% endblock %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    <!-- BREADCRUMB -->
     <div class="all-page-title page-breadcrumb">
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>{{ product.title }} </h1>
+                    <h1>product deatils </h1>
                 </div>
             </div>
         </div>
@@ -54,11 +55,7 @@
                     <h3>details</h3>
                     <span>{{ product.detail | safe }}</span>
 
-                    <div class="bcable-choose">
-                        <button>Straight</button>
-                        <button>Coiled</button>
-                        <button>Long-coiled</button>
-                    </div>
+
 
 
                 </div>
@@ -66,14 +63,20 @@
 
             <!-- Product Pricing -->
             <div class="bproduct-price">
-                <form>
-                    <span>{{ product.price }}</span>
-                    <a href="/order/addtoshopcart/{{ product.id }}" class="bcart-btn">Add to cart</a>
-                  {% csrf_token %}
-                   <p><span class="text-uppercase">quantity: </span>
-                    <input class="input" name="quantity" type="number" value="1" min="1" max=15"{{ product.amount }}">
-                    </p>
-                </form>
+             <form action="/order/addtoshopcart/{{ product.id }}" method="post"  id="addchart-form">
+                                    {% csrf_token %}
+                                    <div id="SelectedProduct">
+                                        <p><strong>Availability:</strong> {% if product.amount > 0  %} In Stock {% else %} Out of Stock {% endif %}</p>
+                                        <h3 class="product-price">{{ product.price }}</h3>
+                                        <div class="qty-input">
+                                            <span class="text-uppercase">QTY: </span>
+                                            <input class="input" name="quantity" type="number" value="1" min="1" max="{{ product.amount }}">
+                                            <button type="submit" {% if product.amount < 1  %} disabled {% endif %} class="bcart-btn add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
             </div>
 
         </div>
@@ -134,24 +137,7 @@
             </form>
         </div>
     </main>
-    <div class="single-review">
-        <div class="review-heading">
-            <div><a href="#"><i class="fa fa-user-o"></i> {{ rs.user.first_name }}</a></div>
-            <div><b>{{ rs.subject }}</b></div>
-            <div><a href="#"><i class="fa fa-clock-o"></i> {{ rs.create_at }}</a></div>
 
-            <div class="review-rating pull-right">
-                <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
-                <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
-                <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
-                <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
-                <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
-            </div>
-        </div>
-        <div class="review-body">
-            <p>{{ rs.comment }}</p>
-        </div>
-    </div>
 
 
 {% endblock %}
