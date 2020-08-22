@@ -7,7 +7,7 @@
     <!-- Start header -->
     <header class="top-navbar" color="green">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container" background-color="white">
 
                 <a class="navbar-brand" href="/home/">
@@ -24,8 +24,8 @@
 
 
 
-            <img src="{{ setting.icon.url }}" class="navbar-brand" href="/home/"  height="110" alt=""/>
-                  </a>
+                    <img src="{{ setting.icon.url }}" class="navbar-brand" href="/home/" height="110" alt=""/>
+                </a>
                 <script>
                     $(function () {
                         $("#query").autocomplete({
@@ -49,9 +49,10 @@
                                placeholder="Enter your keyword">
                         <select name="catid" class="input search-categories">
                             <option value="0">All Categories</option>
-                            {% load mptt_tags %}
+
 
                             {% recursetree category %}
+                                  {% load mptt_tags %}
                                 {% if node.is_leaf_node %}
                                     <option value="{{ node.id }}">{{ node.title }}</option>
                                 {% endif %}
@@ -78,7 +79,6 @@
                     <ul class="navbar-nav ml-auto">
 
 
-
                         <li class="nav-item"><a class="nav-link " href="/home/">Home</a></li>
 
                         <li class="nav-item dropdown">
@@ -92,21 +92,19 @@
 
 
                                 {% load mptt_tags %}
+                                <ul class="submenu">
 
-                                <ul>
                                     {% recursetree category %}
                                         <li>
 
-
-                                            <a href="/category/{{ node.id }}/{{ node.slug }}" class="text-black-50"
-                                                    {% if not node.is_leaf_node %} data-toggle="dropdown"
-                                               aria-expanded="true" {% endif %}>{{ node.title }}<i
-                                                    class="fa fa-angle-right"></i></a>
-
-
+                                            <a style="color: #0b2e13 !important;"
+                                                            href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
                                             {% if not node.is_leaf_node %}
-                                                <ul class="list-links">
-                                                   <li><h5 href="#">{{ children }}</h5></ul> </li>
+
+                                                <ul style="margin-left:30px">
+                                                    {{ children }}
+                                                </ul>
+
                                             {% endif %}
                                         </li>
                                     {% endrecursetree %}
@@ -114,12 +112,7 @@
 
 
                             </div>
-
-
-
-
-
-
+                        </li>
 
 
                         <li class="nav-item"><a class="nav-link " href="menu.html">Resturants</a></li>
@@ -136,9 +129,7 @@
                             <a class="" role="button" data-toggle="dropdown" aria-expanded="true">
 
 
-
-
-                                </a>
+                            </a>
                             </a>
 
 
@@ -147,33 +138,37 @@
 
                             <li class="nav-item dropdown">
 
-                                  <ul class="custom-menu">
+                            <ul class="custom-menu">
 
-                            <a class="nav-link  " href="#" id="dropdown-a" data-toggle="dropdown"><strong class="text-uppercase">{{ user.first_name }}<img src="{{ request.session.userimage }}" style="height: 30px; border-radius: 30%"><i class="fa fa-caret-down"></i></strong></a>
+                            <a class="nav-link  " href="#" id="dropdown-a" data-toggle="dropdown"><strong
+                                    class="text-uppercase">{{ user.first_name }}<img
+                                    src="{{ request.session.userimage }}" style="height: 30px; border-radius: 30%"><i
+                                    class="fa fa-caret-down"></i></strong></a>
                             <img src="{{ request.session.Userimage }}" style="height: 30px; border-radius: 30%" alt=""/>
                             <div class="dropdown-menu  text-black-50" aria-labelledby="dropdown-a">
 
 
-                            <li><a href="/user/"><i class="fa fa-user-o "></i> My Account</a></li>
-                            <li><a href="/favorite"><i class="fa fa-heart-o "></i> My Wishlist</a></li>
-                            <li><a href="/user/orders"><i class="fa fa-exchange "></i> orders</a></li>
-                            <li><a href="/user/comments"><i class="fa fa-check "></i>comments</a></li>
-                            <li><a href="/logout/"><i class="fa fa-unlock-alt "></i> Logout</a></li>
+                                <li><a href="/user/"><i class="fa fa-user-o "></i> My Account</a></li>
+                                <li><a href="/favorite"><i class="fa fa-heart-o "></i> My Wishlist</a></li>
+                                <li><a href="/user/orders"><i class="fa fa-exchange "></i> orders</a></li>
+                                <li><a href="/user/comments"><i class="fa fa-check "></i>comments</a></li>
+                                <li><a href="/logout/"><i class="fa fa-unlock-alt "></i> Logout</a></li>
 
-                            </li>
+                                </li>
                             </div>
                         {% else %}
                             <a href="/login" class="text-uppercase">Login</a> /
                             <a href="/signup" class="text-uppercase">Sign Up</a>
                         {% endif %}
                         </ul>
-                        </div>
-                        </li>
+                </div>
+                </li>
 
 
-                    </ul>
+                </ul>
 
 
-        </nav>
+            </div>
+        </div>s
     </header>
 {% endblock %}

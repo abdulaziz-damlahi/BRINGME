@@ -8,4 +8,5 @@ urlpatterns = [
     path('addcomment/<int:id>', views.addcomment, name='addcomment'),
     path('update/', views.user_update, name='user_update'),
 
+
 ]

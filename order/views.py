@@ -146,3 +146,51 @@ def orderproduct(request):
                'setting': setting,
                }
     return render(request, 'Order_Form.html', context)
+
+
+
+
+
+def order_user(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    current_user = request.user
+    orders=Order.objects.filter(user_id=current_user.id)
+    context = {'category': category,
+                'setting': setting,
+               'orders': orders,
+               }
+    return render(request, 'user_orders.html', context)
+
+
+
+@login_required(login_url='/login') # Check login
+
+def user_orderdetail(request,id):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    current_user = request.user
+    order = Order.objects.get(user_id=current_user.id, id=id)
+    orderitems = OrderProduct.objects.filter(order_id=id)
+    context = {
+        'category': category,
+        'order': order,
+        'setting': setting,
+        'orderitems': orderitems,
+    }
+    return render(request, 'user_order_detail.html', context)
+
+
+def user_order_product_detail(request,id,oid):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    current_user = request.user
+    order = Order.objects.get(user_id=current_user.id, id=oid)
+    orderitems = OrderProduct.objects.filter(id=id,user_id=current_user.id)
+    context = {
+        'category': category,
+        'setting': setting,
+        'order': order,
+        'orderitems': orderitems,
+    }
+    return render(request, 'user_order_detail.html', context)

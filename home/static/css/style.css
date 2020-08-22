@@ -275,7 +275,7 @@ a,
 	position: relative;
 	display: block;
 	background-color: #010101;
-	border-top: 1px dashed rgba(207, 166, 113);
+
 	padding: 30px 0;
 	z-index: 1;
 }
@@ -937,6 +937,8 @@ button:focus{
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover{
+    	background-color: #1e368f;
+
 
 
 }
@@ -1856,6 +1858,7 @@ button:focus{
 	background: #010101;
 }
 
+
 .f-social {
     padding-bottom: 10px;
     margin: 0px;
@@ -1872,7 +1875,7 @@ button:focus{
 	position: relative;
 	display: block;
 	background-color: #010101;
-	border-top: 1px dashed rgba(207, 166, 113);
+
 	padding: 30px 0;
 	z-index: 1;
 }
@@ -2600,7 +2603,7 @@ html, body {
 }
 
 .bcolor-choose input[type="radio"]:checked + label span {
-  background-image: url(images/check-icn.svg);
+
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2827,7 +2830,7 @@ html, body {
 .comment-item-right a {
     font-size: 16px;
     font-weight: 500;
-
+}
     .single-review {
       margin-bottom: 30px;
     }
@@ -2867,6 +2870,9 @@ html, body {
     }
 
 
+
+
+
     .reviews-pages li {
       display: inline-block;
       margin-right: 6px;
@@ -2903,14 +2909,14 @@ html, body {
       text-transform: uppercase;
       font-weight: 700;
     }
-  }
+
   #aside {
     margin-bottom: 60px;
   }
   .product-reviews {
     margin-bottom: 30px;
   }
-}
+
 .single-review {
   margin-bottom: 30px;
 }

@@ -2,11 +2,11 @@
 {% load static %}
 {% load mptt_tags %}
 {% block header %}{% include "header.html" %}{% endblock %}
-
   {% block title %} contact- {{ setting.title }} {% endblock %}
     {% block keywords %}  {{ setting.keywords }} {% endblock %}
     {% block description %}  {{ setting.description }} {% endblock %}
 {%block content %}
+
 <body>
 
 
@@ -63,7 +63,7 @@
             padding-bottom: 5%;
         }
     </style>
-    </head>
+    </body>
 
 
     <div class="container1">
@@ -88,9 +88,6 @@
         </form>
     </div>
 
-
-    <!-- Start About -->
-
     <div class="container1"  background-color="grey">
 
 
@@ -105,7 +102,11 @@
             </div>
         </div>
     </div>
+
 </body>
+
+
+
 {% endblock %}
 
 {% block footer %}{% include "footer.html" %}{% endblock %}

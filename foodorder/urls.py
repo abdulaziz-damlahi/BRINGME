@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from Tools.scripts import serve
 from django.contrib import admin
 from django.urls import path, include
 
@@ -40,7 +41,8 @@ urlpatterns = [
     path('auto_search/', views.search, name='auto_search'),
     path('home/contact/', views.contactus, name='contact'),
     path('product/', include('product.urls')),
-    path('user/', include('user.urls')),
+
+    path('user/', include('user.urls'), name='user'),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>', views.category_products, name='category_products'),
@@ -51,7 +53,9 @@ urlpatterns = [
     path('signup/', UserViews.signup_form, name='signup_form'),
 
 
+
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
