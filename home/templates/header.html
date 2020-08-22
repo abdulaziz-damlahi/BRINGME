@@ -45,7 +45,7 @@
                 <div class="header-search">
                     <form action="/search/" method="post">
                         {% csrf_token %}
-                        <input id="query" class="input" name="query" class="input search-input" type="text"
+                        <input id="query" class="input" name="query" class="input1 search-input" type="text"
                                placeholder="Enter your keyword">
                         <select name="catid" class="input search-categories">
                             <option value="0">All Categories</option>
@@ -120,6 +120,8 @@
                         <li class="nav-item"><a class="nav-link " href="/about">AboutUs</a></li>
 
                         <li class="nav-item"><a class="nav-link " href="/contact">Contact</a></li>
+
+                        <li class="nav-item"><a class="nav-link " href="/faq">FAQ</a></li>
 
                         <li class="nav-item"><a class="nav-link " href="/shopcart/">ShopCart</a></li>
 

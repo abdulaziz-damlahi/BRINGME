@@ -51,6 +51,7 @@ urlpatterns = [
     path('login/', UserViews.login_form, name='login_form'),
     path('logout/', UserViews.logout_fuc, name='logout_ffunc'),
     path('signup/', UserViews.signup_form, name='signup_form'),
+    path('faq/', UserViews.faq, name='faq'),
 
 
 

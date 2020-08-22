@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from home.models import Setting
+
+from home import models
+from home.models import Setting, FAQ
 from order.models import Order, OrderProduct
 from product.models import Category, comment
 from user.forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
@@ -223,3 +225,13 @@ def user_deletecomment(request,id):
     comment.objects.filter(id=id, user_id=current_user.id).delete()
     messages.success(request, 'Comment deleted..')
     return HttpResponseRedirect('/user/comments')
+
+
+def faq(request):
+    category = Category.objects.all()
+    faq = FAQ.objects.filter(status="True").order_by("ordernumber")
+    context = {
+        'category': category,
+        'faq': faq,
+    }
+    return render(request, 'faq.html', context)
