@@ -11,9 +11,6 @@ from product.models import commentForm, comment
 def index(request):
     return HttpResponse("my product page")
 
-def addcomment(request):
-    return HttpResponse("add comment")
-
 def addcomment(request,id):
    url = request.META.get('HTTP_REFERER')
 
