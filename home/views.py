@@ -27,7 +27,6 @@ def index(request):
                'products_slider': products_slider,
                'category': category,
                'products_newist': products_newist,
-               'category': category,
                'products_pick': products_pick}
     return render(request, 'index.html', context)
 
@@ -83,8 +82,7 @@ def search(request):
             query = form.cleaned_data['query']
             catid = form.cleaned_data['catid']
             if catid == 0:
-                products = Product.objects.filter(
-                    title__icontains=query)  # key sinstive SELECT * FROM product WHERE title LIKE '%query%'
+                products = Product.objects.filter(title__icontains=query)  # key sinstive SELECT * FROM product WHERE title LIKE '%query%'
             else:
                 products = Product.objects.filter(title__icontains=query, category_id=catid)
 

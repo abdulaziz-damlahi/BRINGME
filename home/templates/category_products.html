@@ -9,12 +9,15 @@
     {% block description %}  {{ setting.description }} {% endblock %}
     <!-- Start header -->
 
-    <div id="breadcrumb">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li class="active"> about us</li>
-            </ul>
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for rs in products %}
+                    <h1>{{ rs.resturant }}</h1>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 

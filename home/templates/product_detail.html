@@ -11,7 +11,222 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        body {
+            background: #dcdcdc;
+        }
 
+        .total-like-user-main a {
+            display: inline-block;
+            margin: 0 -17px 0 0;
+        }
+
+        .total-like {
+            border: 1px solid;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 500;
+            height: 34px;
+            line-height: 33px;
+            padding: 0 13px;
+            vertical-align: top;
+        }
+
+        .restaurant-detailed-ratings-and-reviews hr {
+            margin: 0 -24px;
+        }
+
+        .graph-star-rating-header .star-rating {
+            font-size: 17px;
+        }
+
+        .progress {
+            background: #f2f4f8 none repeat scroll 0 0;
+            border-radius: 0;
+            height: 30px;
+        }
+
+        .rating-list {
+            display: inline-flex;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .rating-list-left {
+            height: 16px;
+            line-height: 29px;
+            width: 10%;
+        }
+
+        .rating-list-center {
+            width: 80%;
+        }
+
+        .rating-list-right {
+            line-height: 29px;
+            text-align: right;
+            width: 10%;
+        }
+
+        .restaurant-slider-pics {
+            bottom: 0;
+            font-size: 12px;
+            left: 0;
+            z-index: 999;
+            padding: 0 10px;
+        }
+
+        .restaurant-slider-view-all {
+            bottom: 15px;
+            right: 15px;
+            z-index: 999;
+        }
+
+        .offer-dedicated-nav .nav-link.active,
+        .offer-dedicated-nav .nav-link:hover,
+        .offer-dedicated-nav .nav-link:focus {
+            border-color: #3868fb;
+            color: #3868fb;
+        }
+
+        .offer-dedicated-nav .nav-link {
+            border-bottom: 2px solid #fff;
+            color: #000000;
+            padding: 16px 0;
+            font-weight: 600;
+        }
+
+        .offer-dedicated-nav .nav-item {
+            margin: 0 37px 0 0;
+        }
+
+        .restaurant-detailed-action-btn {
+            margin-top: 12px;
+        }
+
+        .restaurant-detailed-header-right .btn-success {
+            border-radius: 3px;
+            height: 45px;
+            margin: -18px 0 18px;
+            min-width: 130px;
+            padding: 7px;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+
+        .icon-overlap {
+            bottom: -23px;
+            font-size: 74px;
+            opacity: 0.23;
+            position: absolute;
+            right: -32px;
+        }
+
+        .menu-list img {
+            width: 41px;
+            height: 41px;
+            object-fit: cover;
+        }
+
+        .restaurant-detailed-header-left img {
+            width: 88px;
+            height: 88px;
+            border-radius: 3px;
+            object-fit: cover;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+        }
+
+        .reviews-members .media .mr-3 {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+        }
+
+        .rounded-pill {
+            border-radius: 50rem !important;
+        }
+
+        .total-like-user {
+            border: 2px solid #fff;
+            height: 34px;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+            width: 34px;
+        }
+
+        .total-like-user-main a {
+            display: inline-block;
+            margin: 0 -17px 0 0;
+        }
+
+        .total-like {
+            border: 1px solid;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 500;
+            height: 34px;
+            line-height: 33px;
+            padding: 0 13px;
+            vertical-align: top;
+        }
+
+        .restaurant-detailed-ratings-and-reviews hr {
+            margin: 0 -24px;
+        }
+
+        .graph-star-rating-header .star-rating {
+            font-size: 17px;
+        }
+
+        .progress {
+            background: #f2f4f8 none repeat scroll 0 0;
+            border-radius: 0;
+            height: 30px;
+        }
+
+        .rating-list {
+            display: inline-flex;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .rating-list-left {
+            height: 16px;
+            line-height: 29px;
+            width: 10%;
+        }
+
+        .rating-list-center {
+            width: 80%;
+        }
+
+        .rating-list-right {
+            line-height: 29px;
+            text-align: right;
+            width: 10%;
+        }
+
+        .restaurant-slider-pics {
+            bottom: 0;
+            font-size: 12px;
+            left: 0;
+            z-index: 999;
+            padding: 0 10px;
+        }
+
+        .restaurant-slider-view-all {
+            bottom: 15px;
+            right: 15px;
+            z-index: 999;
+        }
+
+        .progress {
+            background: #f2f4f8 none repeat scroll 0 0;
+            border-radius: 0;
+            height: 30px;
+        }
+    </style>
     <!-- BREADCRUMB -->
     <div class="all-page-title page-breadcrumb">
         <div class="container text-center">
@@ -29,7 +244,7 @@
             <img src="{{ product.image.url }}" height="300px">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 
             <!-- Product Description -->
             <div class="bproduct-description">
@@ -56,33 +271,34 @@
                     <span>{{ product.detail | safe }}</span>
 
 
-
-
                 </div>
             </div>
 
             <!-- Product Pricing -->
             <div class="bproduct-price">
-             <form action="/order/addtoshopcart/{{ product.id }}" method="post"  id="addchart-form">
-                                    {% csrf_token %}
-                                    <div id="SelectedProduct">
-                                        <p><strong>Availability:</strong> {% if product.amount > 0  %} In Stock {% else %} Out of Stock {% endif %}</p>
-                                        <h3 class="product-price">{{ product.price }}</h3>
-                                        <div class="qty-input">
-                                            <span class="text-uppercase">QTY: </span>
-                                            <input class="input" name="quantity" type="number" value="1" min="1" max="{{ product.amount }}">
-                                            <button type="submit" {% if product.amount < 1  %} disabled {% endif %} class="bcart-btn add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i> Add to Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                <form action="/order/addtoshopcart/{{ product.id }}" method="post" id="addchart-form">
+                    {% csrf_token %}
+                    <div id="SelectedProduct">
+                        <p><strong>Availability:</strong> {% if product.amount > 0 %} In Stock {% else %} Out of
+                            Stock {% endif %}</p>
+                        <h3 class="product-price">{{ product.price }}</h3>
+                        <div class="qty-input">
+                            <span class="text-uppercase">QTY: </span>
+                            <input class="input" name="quantity" type="number" value="1" min="1"
+                                   max="{{ product.amount }}">
+                            <button type="submit" {% if product.amount < 1 %} disabled {% endif %}
+                                    class="bcart-btn add-to-cart">
+                                <i class="fa fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
         </div>
 
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 
             <h4 class="text-uppercase">Write Your Review</h4>
             {% if messages %}
@@ -135,9 +351,37 @@
                     log in to post review
                 {% endif %}
             </form>
-        </div>
-    </main>
 
+        </div>
+
+        <div class="col-md-4">
+          <h4 class="text-uppercase"> Reviews</h4>
+            {% for rs in comments %}
+                <div class="single-review">
+                <div class="reviews-members-header">
+                    <div><a href="#"><i class="fa fa-user-o" color="black"></i> {{ rs.user.first_name }}</a></div>
+                    <div><b>{{ rs.subject }}</b></div>
+                    <div><a href="#"><i class="fa fa-clock-o"></i> {{ rs.create_at }}</a></div>
+                    <div class="star-rating float-right">
+                        <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                        <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
+                        <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
+                        <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
+                        <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
+
+                    </div>
+
+                </div>
+                <div class="review-body">
+                    <p>{{ rs.comment }}</p>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+
+
+    </main>
 
 
 {% endblock %}

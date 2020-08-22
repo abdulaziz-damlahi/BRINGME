@@ -1,5 +1,4 @@
 
-
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
@@ -36,9 +35,8 @@ def login_form(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-
-            u = User.objects.get(id=1)
-            userprofile = UserProfile.objects.get(user_id=u)
+            current_user = request.user
+            userprofile = UserProfile.objects.get(user_id=current_user.id)
             request.session['userimage'] = userprofile.image.url
             # Redirect to a success page.
             return HttpResponseRedirect('/')
@@ -83,6 +81,7 @@ def signup_form(request):
 
 
 def user_password(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -96,8 +95,7 @@ def user_password(request):
     else:
         # category = Category.objects.all()
         form = PasswordChangeForm(request.user)
-        return render(request, 'user_password.html', {'form': form,  # 'category': category
-                                                      })
+        return render(request, 'user_password.html', {'form': form,'setting': setting, })
 
 
 @login_required(login_url='/login')
@@ -184,10 +182,12 @@ def user_order_product_detail(request,id,oid):
 
 @login_required(login_url='/login') # Check login
 def user_order_product(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     order_product = OrderProduct.objects.filter(user_id=current_user.id).order_by('-id')
     context = {'category': category,
+               'setting': setting,
                'order_product': order_product,
                }
     return render(request, 'user_order_products.html', context)
@@ -195,13 +195,15 @@ def user_order_product(request):
 
 @login_required(login_url='/login') # Check login
 def user_orderdetail(request,id):
-    #category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
     current_user = request.user
     order = Order.objects.get(user_id=current_user.id, id=id)
     orderitems = OrderProduct.objects.filter(order_id=id)
     context = {
-        #'category': category,
+        'category': category,
         'order': order,
+        'setting': setting,
         'orderitems': orderitems,
     }
     return render(request, 'user_order_detail.html', context)
@@ -209,10 +211,12 @@ def user_orderdetail(request,id):
 
 
 def user_comments(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     Comments = comment.objects.filter(user_id=current_user.id)
     context = {
+        'setting': setting,
         'category': category,
         'Comments': Comments,
     }
@@ -228,10 +232,27 @@ def user_deletecomment(request,id):
 
 
 def faq(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     faq = FAQ.objects.filter(status="True").order_by("ordernumber")
     context = {
         'category': category,
         'faq': faq,
+        'setting': setting,
     }
     return render(request, 'faq.html', context)
+
+
+def Resturants_home(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    faq = FAQ.objects.filter(status="True").order_by("ordernumber")
+    context = {
+        'category': category,
+        'faq': faq,
+        'setting': setting,
+    }
+    return render(request, 'Resturants.html', context)
+
+
+

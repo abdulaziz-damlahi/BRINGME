@@ -43,6 +43,7 @@ urlpatterns = [
     path('product/', include('product.urls')),
 
     path('user/', include('user.urls'), name='user'),
+
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>', views.category_products, name='category_products'),
@@ -52,6 +53,10 @@ urlpatterns = [
     path('logout/', UserViews.logout_fuc, name='logout_ffunc'),
     path('signup/', UserViews.signup_form, name='signup_form'),
     path('faq/', UserViews.faq, name='faq'),
+    path('Resturants/', UserViews.Resturants_home, name='Resturants_home'),
+
+
+
 
 
 
