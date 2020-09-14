@@ -1,2 +1,1 @@
-# foodorder
-# Python-Django-Yazokulu
+
